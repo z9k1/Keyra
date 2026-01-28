@@ -3,9 +3,11 @@
 from fastapi import FastAPI
 from sqlalchemy import text
 
+from app.core.auth_middleware import jwt_auth_middleware
 from app.core.config import get_settings
 from app.db.postgres import engine
 from app.db.redis import close_redis, redis_client
+from app.modules.auth.router import router as auth_router
 
 
 @asynccontextmanager
@@ -24,6 +26,8 @@ async def lifespan(app: FastAPI):
 settings = get_settings()
 
 app = FastAPI(title=settings.app_name, debug=settings.debug, lifespan=lifespan)
+app.middleware("http")(jwt_auth_middleware)
+app.include_router(auth_router)
 
 
 @app.get("/health")
