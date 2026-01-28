@@ -1,0 +1,16 @@
+# Node / Next
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.turbo/
+frontend/.vercel/
+frontend/.env.local
+
+# General
+node_modules/
+.next/
+dist/
+build/
+*.log
+.env
+.DS_Store
