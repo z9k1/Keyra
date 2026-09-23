@@ -98,4 +98,3 @@ NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
 - Refresh token tem rotação e detecção de reuse.
 
 ---
-Se precisar de ajustes ou deploy, me chama.
